@@ -1,7 +1,7 @@
 # PROVIDO-harmonization
 Code developed as part of PRoject on Optimal VItamin D in Older adults (PROVIDO).
 
-This project involves harmonizing data from 5 epidemiologic cohort studies to identify and validate sex-specific thresholds of 25-hydroxyvitamin D that best descriminate incident slow gait speed. Code here provides operational definitions of harmonized variables used for analysis.
+This project involves harmonizing data from 5 epidemiologic cohort studies to identify and validate sex-specific thresholds of 25-hydroxyvitamin D that best descriminate incident slow gait speed in older adults (age at least 65 years). Code here provides operational definitions of harmonized variables used for analysis.
 
 Participating cohort studies: Age, Gene/Environment Susceptibility-Reykjavik (AGES); Health, Aging and Body Composition (Health ABC), Invecchiare in Chianti (InCHIANTI), Osteoporotic Fractures in Men (MrOS), and Study of Osteoporotic Fractures (SOF).
 
