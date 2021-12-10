@@ -66,10 +66,6 @@ set ages_all3;
 run;
 
 
-proc freq data=ages_all;
-table healbkhp/missing;
-run;
-
 ***************************************************************
 * r1:
 * Baseline data: Baseline versions of gait speed and other 
