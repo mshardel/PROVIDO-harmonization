@@ -135,7 +135,7 @@ IADLTRAVEL =.;
 *self-reported taking meds disability (not assessed);
 IADLMEDS = .;
 
-*self-reported managing money disability (not assessed)
+*self-reported managing money disability (not assessed);
 IADLMONEY =.;
 
 
