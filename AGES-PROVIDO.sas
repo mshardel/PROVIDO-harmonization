@@ -144,7 +144,7 @@ IADLMONEY =.;
 CHAIRTIME = .;
 
 *knee ext strength (in Nm) (only tested one leg);
-MAXKNEEXT = Legstrnm ;
+KNEEXT = Legstrnm ;
 
 *6m gait speed (m/sec);
 GTSPEED6M = 6/TIME_NORMAL ;  
