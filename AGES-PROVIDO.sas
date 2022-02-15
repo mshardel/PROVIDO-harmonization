@@ -461,7 +461,6 @@ SYSBP=SYS;
 MI=(HEALATTK=1);
 if HEALATTK in (.) then MI=.;
 
-
 **diabetes;
 *self report, hypoglycemia meds, or insulin;
 DIABETES = (
@@ -492,7 +491,7 @@ EMPH = .;
 *asthma (not assessed);
 ASTHMA = .;
 
-**baseline steoporosis;
+**baseline osteoporosis;
 *Total femur T-Score using means and SDs from Looker (1998);
 TSCORE = (CT02TOBD-0.942)/0.122*(FEMALE=1) + 
          (CT02TOBD-1.041)/0.144*(FEMALE=0);
