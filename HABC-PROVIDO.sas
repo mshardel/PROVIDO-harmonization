@@ -191,16 +191,6 @@ IADLMEDS = .;
 *self-reported managing money disability (not assessed);
 IADLMONEY =.;
 
-**********need to figure out performance data;
-
-*6m walk:       1, (4,6) missing, 10;
-*chair stands:  1, (4,6), 8,      11;
-*grip strength: 2, (4,6), 8,      10;
-*leg extension: 2, (4,6), 8,      10;
-*dxa hip:       1, (5,6), 8,      10;
-*dxa whole body:2, (5,5), 8,      10;
-
-
 *chair stands (converting chair stands per second into time to perform 5 chair stands);
 CHAIRTIME = 5/CHR5PACE; /*from home visits only, o/w use year 1*/
 
