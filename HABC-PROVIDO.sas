@@ -705,7 +705,7 @@ run;
 * r1_pred_y2:
 * Baseline data: exposure and covariates for adustment measured at Y2
 * Mortality: Time to death or loss to follow-up (censoring)
-* Baseline visit: enrollment (first) visit for participants
+* Baseline visit: Y2 (second) visit for participants
 ***************************************************************;
 
 
