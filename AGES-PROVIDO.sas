@@ -139,7 +139,6 @@ IADLMEDS = .;
 IADLMONEY =.;
 
 
-
 *chair stands ;
 CHAIRTIME = .;
 
