@@ -421,7 +421,7 @@ if QUE2NMPA=. | QUE2NLPA=. then PHYSACT=.;
 *******************;
 
 **CHF;
-*self report and diuretic and at least one of angiotensis, ace inhibitor, or glykosides;
+*self report and diuretic and at least one of angiotensin, ace inhibitor, or glykosides;
 CHF= (
 (HEALCONG=1) & (DIURETIC=1 | DIURETIC1=1 | DIURETIC2=1) &
 ((ANGIOTENSISN=1 |ACEINHIB=1) | GLYKOSIDES=1)
