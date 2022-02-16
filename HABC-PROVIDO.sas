@@ -1048,7 +1048,7 @@ if TIMELIGHT=. & TIMEMODERATE=. & TIMEHIGH=. then PHYSACT=.;
 *******************;
 
 **CHF;
-*self report and diuretic and at least one of angiotensis, ace inhibitor, or glykosides;
+*self report and diuretic and at least one of angiotensin, ace inhibitor, or glykosides;
 CHF= (
 (MHHCCHF=1) & (Y1CHFDIU=1) &
 ((Y1ANGTN2=1 |Y1ACEINH=1 | Y1HYDRLZ=1) | Y1CARGLY=1)
@@ -1061,6 +1061,12 @@ ANGINA = (
 (MHHCAPCP=1) & (Y1NITRAT=1)
 );
 if MHHCAPCP in (.) then ANGINA=.;
+
+*diastolic BP;
+DIABP=DIABP;
+
+*systolic BP;
+SYSBP=SYSBP;
 
 **hypertension (self report, drugs, BP);
 *SBP > 140 mmHg or self-report and at least one of 
@@ -1076,13 +1082,6 @@ HYPERT=(
 )
 );
 if MHHCHBP in (.) then HYPERT=.;
-
-
-*diastolic BP;
-DIABP=DIABP;
-
-*systolic BP;
-SYSBP=SYSBP;
 
 *Myocardial infarction (self report);
 MI = (MHHCHAMI=1);
