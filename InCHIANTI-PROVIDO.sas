@@ -400,7 +400,7 @@ if Ix14_v26>7 then PHYSACT=.;
 *******************;
 
 **CHF;
-*self report and diuretic and at least one of angiotensis, ace inhibitor, or glykosides;
+*self report and diuretic and at least one of angiotensin, ace inhibitor, or glykosides;
 CHF= (
 (VX5_V54=1) & (FX1_C3=1 | FX1_C13=1) &
 ((FX1_C2=1 |FX1_C4=1) | FX1_C11=1)
