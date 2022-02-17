@@ -415,7 +415,6 @@ VITDSUP = .;
 PHYSACT = 2*(QUE2NMPA>4) + 1*(QUE2NMPA<=4)*(QUE2NMPA=4 |  QUE2NLPA>=4);
 if QUE2NMPA=. | QUE2NLPA=. then PHYSACT=.;
 
-
 *******************
 * Health Conditions
 *******************;
