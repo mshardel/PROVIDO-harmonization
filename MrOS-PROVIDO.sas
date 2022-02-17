@@ -335,7 +335,6 @@ set mros_y1;
 *EXPOSURE and BIOMARKER COVARIATES
 *************************************;
 
-*PREDICTOR, MEDIATORS/MODIFIERS;
 *25(OH)D vitamin D;
 SERUMVITD = OHVDTOTI; /* in nmol/mL */
 
@@ -374,7 +373,7 @@ NEMARRIED = (GIMSTAT=5);
 FOMARRIED = (GIMSTAT in (2,3,4));
 
 
-**education (HS grad, yes=1); 
+*education (HS grad, yes=1); 
 EDU = (GIEDUC>=4); /*GIEDUC: 1=some ele, 2=ele, 3=some hi, 4=hi, 5=some college, 6=college, 7=some grad, 8=grad*/
 if EDU=. then GIEDUC=.;
 
@@ -449,8 +448,7 @@ MODERATEACTIVITY = sum(MODSPORT,STREND) ;
 HIGHACTIVITY = STRSPORT;
 
 **physical activity;
-*2 = highly active (mod/vig activity>3 hrs/wk); 
-*1 = moderately active (mod/vig acitivity 1-3 hrs/wk or light activity >= 1-3 hrs/wk);
+*2 = highly active, 1 = moderately active, 0 = sedentary; 
 if HIGHACTIVITY> 3 | MODERATEACTIVITY> 4 then PHYSACT=2;
 else if  MODERATEACTIVITY> 2 | LIGHTACTIVITY> 3 then PHYSACT=1;
 else PHYSACT=0;
@@ -601,8 +599,8 @@ run;
 
 
 ***************************************************************
-* long2:
-* appending longitudinal data (long2) to r1
+* long3:
+* merging longitudinal data (long2) to r1_pred
 ***************************************************************;
 
 data long3;
