@@ -1036,8 +1036,7 @@ TIMEMODERATE=sum(AEROTIME, WEIGHTTIME, H1MOD, H2MOD,H3MOD,H4MOD);
 TIMEHIGH=sum(H1HIGH,H2HIGH,H3HIGH,H4HIGH);
 
 **physical activity;
-*2 = highly active (mod/vig activity>3 hrs/wk); 
-*1 = moderately active (mod/vig acitivity 1-3 hrs/wk or light activity >= 1-3 hrs/wk);
+*2 = highly active, 1 = moderately active, 0 = sedentary; 
 if TIMEHIGH>2 | TIMEMODERATE>3 then PHYSACT=2;
 else if  TIMEMODERATE>1 | TIMELIGHT>2 then PHYSACT=1;
 else PHYSACT=0;
