@@ -54,9 +54,7 @@ run;
 data inchianti_f1;
 merge disf1.adjf1ana assayf1.labf1raw klotho.klotho  medf1.clf1rawe physf1.pef1_ana physf1.pef1rawe interf1.inf1rawe nutrf1.alif1raw nutrf1.nutf1raw nutrf1.epif1raw qctf1.pqcf1raw ekgf1.marf1raw;
 by code98;
-*r1=1;
 run;
-
 
 
 data ids;
@@ -283,7 +281,6 @@ GTSPEED4M = PyWSPD1A;  /*note: just first walk*/
 *grip strength (kg);
 MAXGRIP = max(PyHGMAXR, PyHGMAXL);
 
-
 *Leg CT BMD measures;
 BMDTRAB4CT = YBMDT_4;  /* trabecular 4% tibia */
 BMDCORT38CT = YCSAC_38; /* cortical 38% tibia */
@@ -406,13 +403,11 @@ CHF= (
 ((FX1_C2=1 |FX1_C4=1) | FX1_C11=1)
 );
 
-
 **angina;
 *self report and nitrates;
 ANGINA = (
 (VX11_V5=1) & (FX1_C10=1)
 );
-
 
 *systolic BP;
 SYSBP=mean(VX23_V23,VX23_V25);
@@ -495,7 +490,7 @@ CESD = IxCESD_T;
 *self-rated health (self report);
 SRHEALTH = IX8_V1;
 if IX8_V1=9 then SRHEALTH=.;
-SRHEALTH = SRHEALTH - 1; from 1 to 5 variable to 0 to 4 variable;
+SRHEALTH = SRHEALTH - 1; *from 1 to 5 variable to 0 to 4 variable;
 if SRHEALTH = 0 then SRHEALTH = 1; *from 0 to 4 variable to 1 to 4 variable. Combined very poor with poor.
 
 *study site;
@@ -507,7 +502,6 @@ BASEVISITDATE = IXDATE;
 
 *month of visit;
 MONTH = month(BASEVISITDATE);
-
 
 *mortality;
 DEATHDATE = DATA_MOR; /*missing if alive*/
@@ -532,7 +526,7 @@ proc sort data=r1pred;
 by CODE98;
 run;
 
-*predictors at follow-up
+*predictors at follow-up;
 data fu1pred;
 merge inchianti_f1 ids;
 by CODE98;

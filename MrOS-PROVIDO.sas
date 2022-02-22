@@ -104,7 +104,7 @@ ADLLTHOUSWK =.;
 IADLSHOP =(QLSHP1 in (0, .K));
 if QLSHP1 in (.,.A) then IADLSHOP=.;
 
-**self-reported meal prep disability;
+*self-reported meal prep disability;
 IADLMEAL =(QLMEL1 in (0,.K) );
 if QLMEL1 in (.,.A) then IADLMEAL=.;
 
@@ -276,8 +276,6 @@ BMDHIPDXAV2V1 = B2THD1;
 VISITDATE = V2DATE;
 VISITDATE2 = R1VISITDATE+365*3.25; *latest timing of fracture corresponding to ~3 years for all;
 
-diffvisit = (VISITDATE-R1VISITDATE)/365;
-
 *hip fractures since baseline (adjudicated);
 HIPFRACTURE = (FAANYHIP=1 & (FAHIPDT1<VISITDATE2)) ;
 
@@ -372,7 +370,6 @@ CUMARRIED = (GIMSTAT=1);
 NEMARRIED = (GIMSTAT=5);
 FOMARRIED = (GIMSTAT in (2,3,4));
 
-
 *education (HS grad, yes=1); 
 EDU = (GIEDUC>=4); /*GIEDUC: 1=some ele, 2=ele, 3=some hi, 4=hi, 5=some college, 6=college, 7=some grad, 8=grad*/
 if EDU=. then GIEDUC=.;
@@ -432,11 +429,11 @@ STRSPORT = PASTR*PASTRT/2; /*(swimming & aerobic dance reclass as moderate; cycl
 if STRSPORT=. then STRSPORT=0; /*hours in strenuous sport*/
 
 *hours in moderate sports (moderate-intensity);
-MODSPORT = PAMOD*PAMODT + min(0,PASTR*PASTRT/3); */2 of 6 strenuous activities reclass as moderate/*
+MODSPORT = PAMOD*PAMODT + min(0,PASTR*PASTRT/3); /*2 of 6 strenuous activities reclass as moderate*/
 if MODSPORT=. then MODSPORT=0; /*hours in moderate sport*/
 
 *hours in light sports (light-intensity);
-LTSPORT = PALTE*PALTET + min(0,PASTR*PASTRT/6); */1 of 6 strenuous activities reclass as moderate*/
+LTSPORT = PALTE*PALTET + min(0,PASTR*PASTRT/6); /*1 of 6 strenuous activities reclass as moderate*/
 if LTSPORT=. then LTSPORT=0; /*hours in light sport*/
 
 *hours walking (light-intensity);

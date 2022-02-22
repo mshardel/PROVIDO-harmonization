@@ -17,7 +17,7 @@ libname y8        "C:\Users\shardellmd\Desktop\SOF\V5yr8"; *for follow-up;
 libname y10       "C:\Users\shardellmd\Desktop\SOF\V6yr10"; *for follow-up;
 libname y6meds        "C:\Users\shardellmd\Desktop\SOF\V4meds"; *med data;
 libname y6dairy        "C:\Users\shardellmd\Desktop\SOF\V4dairy"; *dairy diet data;
-libname y1mort   "C:\Users\shardellmd\Desktop\SOF\V1mortality"; *updated mortality dataset;
+libname y1mort   "C:\Users\shardellmd\Desktop\SOF\V1mortality"; *mortality dataset;
 
 **V4 (y6) is baseline here. Identifying who is alive at study baseline;
 data mortality;
@@ -154,9 +154,6 @@ BMDHIPDXA=V6THD4;  * V5THD4; /*visit 4 BMD longitudinally adj for visit 6*/
 *interview date;
 VISITDATE = .;
 
-
-*need to redo this part;
-
 *fractures (adjudicated) before V4 (either adjudicated btw enrollment and V4 or hx before enrollment;
 TIMEFROMV1TOFRAC = V1HIPF;  *time from V1 to fracture;
 TIMEFROMV1TOV4 = V1FOLALL-V4FOLALL; *time from V1 to V4;
@@ -173,14 +170,9 @@ CHAIRTIME KNEEXT GTSPEED4M MAXGRIP BMDLEGDXA BMDHIPDXA HIPFRACTURE FOLLOWUPTIME;
 run;
 
 
-
 **********************************************
 * using data from Year 8 (V5) and Year 10 (V6) 
 * for follow-up (Round 2, r2)
-**********************************************;
-
-
-**********************************************
 * merging y8 (V5, baseline) data files for follow-up
 **********************************************;
 
@@ -301,7 +293,7 @@ TIMEFROMV4TOV5 = V4FOLALL-V5FOLALL; *time from V4 to V5;
 if V4FOLALL=. then TIMEFROMV1TOV4 = 6.25*365; *if no V4;
 if V5FOLALL=. then  TIMEFROMV1TOV5 = TIMEFROMV1TOV4 + 2.25*365;
 
-V5HIPFRACTURE = V1HIPI*((TIMEFROMV1TOV5-TIMEFROMV1TOV4)>=TIMEFROMV4TOFRAC);*((TIMEFROMV1TOFRAC>=TIMEFROMV1TOV3) & (TIMEFROMV1TOV4>=TIMEFROMV1TOFRAC)); *fractures between V1 and V3;
+V5HIPFRACTURE = V1HIPI*((TIMEFROMV1TOV5-TIMEFROMV1TOV4)>=TIMEFROMV4TOFRAC);
 if TIMEFROMV4TOFRAC=. then do;
  V5HIPFRACTURE = V1HIPI*((TIMEFROMV1TOFRAC>=TIMEFROMV1TOV4) & (TIMEFROMV1TOV5>=TIMEFROMV1TOFRAC));
  if TIMEFROMV1TOFRAC=. then HIPFRACTURE=0;
@@ -622,9 +614,6 @@ if CALCSUP =. then CALCSUP=.;
 VITDSUP = (V4VTD=1);
 if VITDSUP =. then VITDSUP=.;
 
-
-*physical activity;
-
 *kcal/wk light/5/60 to convert to hours per week;
 LIGHTACTIVITY=V4LOWKNP/5/60;
 *kcal/wk medium/7.5/60 to convert to hours per week;
@@ -704,7 +693,7 @@ if V4ESTRK=. then STROKE=.;
 KNEEARTH = .;
 *hip arthritis (not assessed);
 HIPARTH = .;
-*arthritis (self report)
+*arthritis (self report);
 ARTH=(V4EHKAR=1);
 if V4EHKAR=. then ARTH=.;
 
@@ -741,8 +730,6 @@ MMSE = V4SHT3MS*30/26; /*rescaled to 0-30*/
 
 *depressive symptoms (GDS);
 GDS = V4GDS15;
-
-
 
 **self-rated health (self report);
 SRHEALTH = (6-V4COMP); /* reverse order to match other cohorts */

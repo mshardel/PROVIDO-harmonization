@@ -284,7 +284,6 @@ if CHAIRTIME=. then CHAIRTIME=CHAIRTIME1;
 
 *convert 6m gait to 4m gait using equation in Studenski JAMA 2011 paper;
 if GTSPEED4M=. then GTSPEED4M  = -0.0341 + GTSPEED6M*0.9816; 
-*if GTSPEED4M<0 then GTSPEED4M=0;
 
 drop CHAIRTIME1 GTSPEED6M;
 run;
@@ -814,6 +813,7 @@ SHOTINTAKE = 0*(B2SHOT=1) + 0.1*(B2SHOT=2) + (1/7)*(B2SHOT=3) +
                   1*(B2SHOT=6) + 2.5*(B2SHOT=7) + 4*(B2SHOT=8) + 
                   5.5*(B2SHOT=9);
 if B2SHOT=. then SHOTINTAKE=.;
+
 *Alcoholic drinks/day; 
 ALCINTAKE = sum(BEERINTAKE,WINEINTAKE,SHOTINTAKE);
 
@@ -903,8 +903,8 @@ CURSMOKE=.; FORMSMOKE=.;
 end;
 
 **physical activity;
-/*convert activities to hrs/wk, then classify activities as light, moderate, or high intensity,
-then categorize participants as highly active, moderately active, or sedentary */
+*convert activities to hrs/wk, then classify activities as light, moderate, or high intensity,
+then categorize participants as highly active, moderately active, or sedentary;
 *gardening;
 GARDENTIME= FPPAKKWK/3.5; *(light activity) removing the assumed mets;
 

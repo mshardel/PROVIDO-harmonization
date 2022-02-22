@@ -85,7 +85,6 @@ FALL = HEALFALL;
 *number of falls in past 12 mo (not assessed);
 NUMFALLS= .;
 
-
 *self-reported walking disability 500 m;
 MOBDIS =(HEALWALK > 1);
 if HEALWALK in (.,7) then MOBDIS=.;
@@ -138,7 +137,6 @@ IADLMEDS = .;
 *self-reported managing money disability (not assessed);
 IADLMONEY =.;
 
-
 *chair stands ;
 CHAIRTIME = .;
 
@@ -190,7 +188,6 @@ FALL = .;
 *number of falls in past 12 mo (not assessed);
 NUMFALLS= .;
 
-
 *self-reported walking disability 500 m;
 MOBDIS =(A2HEALWALK > 1);
 if A2HEALWALK in (.) then MOBDIS=.;
@@ -240,9 +237,8 @@ IADLTRAVEL =.;
 *self-reported taking meds disability (not assessed);
 IADLMEDS = .;
 
-*self-reported managing money disability (not assessed)
+*self-reported managing money disability (not assessed);
 IADLMONEY =.;
-
 
 *chair stands ;
 CHAIRTIME = .;
@@ -465,7 +461,6 @@ DIABETES = (
 (HEALDBTS=1) | (HYPOGLYCEMO=1) | (INSULIN_MED=1) 
 );
 if HEALDBTS in (.) then DIABETES=.;
-
 
 *stroke (self report);
 STROKE = (HEALSTRK=1);

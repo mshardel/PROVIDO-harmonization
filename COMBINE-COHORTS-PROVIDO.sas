@@ -12,7 +12,7 @@ data all;
 set vitd.AGES_vitdtargets2 vitd.habc_vitdtargetsv3 vitd.inchianti_vitdtargets2 vitd.SOF_vitdtargets3 vitd.MROS_vitdtargets2 ;
 
 **harmonizing depressive symptoms into a dichotomous variable;
-*CES-D: http://www.valueoptions.com/providers/Education_Center/Provider_Tools/Depression_Screening.pdf
+*CES-D: http://www.valueoptions.com/providers/Education_Center/Provider_Tools/Depression_Screening.pdf;
 if CESD ~=.  then DEPRESSED = (CESD>16);
 *GDS 15: http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1571046/;
 else if GDS ~=. then DEPRESSED=(GDS>4); 
@@ -47,7 +47,6 @@ if study in ("AGES") then SERUMVITDLCMS=(7.7011 + 1.0128*SERUMVITD)*(SERUMVITD<=
 *converting to RIA;
 SERUMVITDRIA=SERUMVITD;
 if study in ("MROS", "SOF") then SERUMVITDRIA=((sqrt(SERUMVITD)-0.9542*sqrt(2.496))/0.8621)**2;
-*if study in ("AGES") then SERUMVITDRIA=(SERUMVITD - 2.4*2.496)/0.99;
 if study in ("AGES") then SERUMVITDRIA=((sqrt(SERUMVITDLCMS)-0.9542*sqrt(2.496))/0.8621)**2;
 
 run;
